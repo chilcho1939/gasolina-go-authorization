@@ -19,8 +19,8 @@ spring:
     serialization:
       indent-output: true
   datasource:
-    url: jdbc:mysql://docker-mysql:3306/gasolina_go?allowPublicKeyRetrieval=true&useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=UTC
-    username: gasolina_go_root_user
+    url: jdbc:mysql://localhost:3306/gasolina_go?allowPublicKeyRetrieval=true&useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=UTC
+    username: root
     password: Chilcho19
     tomcat:
       max-active: 1000
@@ -57,6 +57,4 @@ management:
 
 eureka:
   client:
-    serviceUrl:
-      defaultZone: http://gasolina-go-discovery:8761/eureka
-    preferIpAddress: true
+    enabled: false

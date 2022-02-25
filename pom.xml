@@ -8,11 +8,11 @@
 		<version>2.6.4</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.api.gasolina.users</groupId>
-	<artifactId>gasolina-usuarios</artifactId>
+	<groupId>com.api.gasolina.auth</groupId>
+	<artifactId>gasolina-authorization</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>Administrador de usuarios</name>
-	<description>Administrador de usuarios del sistema</description>
+	<name>Módulo de autorización</name>
+	<description>Administrador de authorización y autenticación</description>
 	<properties>
 		<java.version>1.8</java.version>
 		<spring-cloud.version>2021.0.1</spring-cloud.version>
@@ -56,11 +56,11 @@
 			<artifactId>modelmapper</artifactId>
 			<version>2.3.8</version>
 		</dependency>
-		<!-- jwt -->
+		<!-- MySQL-->
 		<dependency>
-			<groupId>io.jsonwebtoken</groupId>
-			<artifactId>jjwt</artifactId>
-			<version>0.9.1</version>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<scope>runtime</scope>
 		</dependency>
 		<dependency>
 			<groupId>io.jsonwebtoken</groupId>
