@@ -1,0 +1,63 @@
+#logging
+logging:
+  pattern:
+    console: "%d %-5level %logger : %msg%n"
+  level:
+    ROOT: WARN
+    org.springframework.web: INFO
+    com.api.gasolina.catalogos: DEBUG
+
+spring:
+  application:
+    name: gasolina-go-usuarios
+  devtools:
+    restart:
+      enabled: true
+    livereload:
+      enabled: true
+  jackson:
+    serialization:
+      indent-output: true
+  datasource:
+    url: jdbc:mysql://docker-mysql:3306/gasolina_go?allowPublicKeyRetrieval=true&useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=UTC
+    username: gasolina_go_root_user
+    password: Chilcho19
+    tomcat:
+      max-active: 1000
+    hikari:
+      data-source-properties:
+        cachePrepStmts: true
+        prepStmtCacheSize: 250
+        prepStmtCacheSqlLimit: 2048
+        useServerPrepStmts: true
+  jpa:
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+    database: MYSQL
+    properties:
+      hibernate.id.new_generator_mappings: false
+      hibernate.cache.use_second_level_cache: false
+      hibernate.cache.use_query_cache: false
+      #hibernate.cache.region.factory_class: org.hibernate.cache.ehcache.EhCacheRegionFactory
+      hibernate.generate_statistics: false
+      hibernate.jdbc.batch_size: 30
+      hibernate.order_inserts: true
+      hibernate.order_updates: true
+      show-sql: true
+
+# Server port
+server:
+  port: 8586
+  servlet:
+    context-path: /usuarios
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://gasolina-go-discovery:8761/eureka
+    preferIpAddress: true
